@@ -1,7 +1,7 @@
 var Thermostat = function(){
   this.currentTemperature = 20;
   this.minimumTemperature = 10;
-  this.maximumTemperature = 32;
+  this.maximumTemperature = 25;
 };
 
 Thermostat.prototype.increase = function () {
@@ -11,9 +11,15 @@ Thermostat.prototype.increase = function () {
 };
 
 Thermostat.prototype.decrease = function () {
+  if (this.currentTemperature == this.minimumTemperature)
+    throw new Error("Cannot decrease temperature, minimum temperature reached.")
   this.currentTemperature--;
 };
 
 Thermostat.prototype.enablePowerSave = function () {
   this.maximumTemperature = 25;
+};
+
+Thermostat.prototype.disablePowerSave = function () {
+  this.maximumTemperature = 32;
 };

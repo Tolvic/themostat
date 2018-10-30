@@ -30,11 +30,15 @@ As a user
 So I don't get too cold
 I'd like the minimum temperature to be 10 degrees
 
-As a User
+As a user
 So I can save power
 I'd like the maximum temperature to be 25 degrees when power saving mode is on
 
-As a User
+As a user
 So I can save power
 I'd like the maximum temperature to be 32 degrees when power saving mode is off
+
+As a user
+So I can save power
+I'd like to have power saving mode turned on by default
 ```
