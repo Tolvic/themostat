@@ -17,4 +17,12 @@
 As a user
 So I can see the current temperature
 I'd like the thermostat to start at 20 degrees
+
+As a user
+So I can change the temperature
+I'd like to be able to increase the temperature with an up function
+
+As a user
+So I can change the temperature
+I'd like to be able to decrease the temperature with a down function
 ```
