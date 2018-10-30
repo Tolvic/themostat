@@ -9,6 +9,10 @@ describe('Thermostat', function() {
     it('with a default temperature of 20', function() {
       expect(thermostat.currentTemperature).toEqual(20)
     });
+
+    it('with a minimum temperature of 10', function() {
+      expect(thermostat.minimumTemperature).toEqual(10)
+    });
   });
 
   describe('increases the temperature', function() {
