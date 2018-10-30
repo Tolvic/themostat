@@ -70,6 +70,18 @@ describe('Thermostat', function() {
       thermostat.disablePowerSave()
       expect(thermostat.maximumTemperature).toEqual(32)
     });
+
+    it('increases the temperature, turns off power save mode, and then returns to power save mode', function() {
+      for (var i = 0; i < 5; i++) {
+        thermostat.increase()
+      }
+      thermostat.togglePowerSave()
+      for (var i = 0; i < 7; i++) {
+        thermostat.increase()
+      }
+      thermostat.togglePowerSave()
+      expect(thermostat.currentTemperature).toEqual(25)
+    });
   });
 
   describe('toggles power save mode', function () {

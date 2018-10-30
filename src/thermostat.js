@@ -30,6 +30,9 @@ Thermostat.prototype.togglePowerSave = function () {
 };
 
 Thermostat.prototype.enablePowerSave = function () {
+  if (this.currentTemperature > this.MAXIMUM_TEMPERATURE_PSM_ON) {
+    this.currentTemperature = this.MAXIMUM_TEMPERATURE_PSM_ON;
+  }
   this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_ON;
 };
 
