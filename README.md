@@ -66,3 +66,4 @@ cd thermostat
 ```bash
 open SpecRunner.html
 ```
+![jasmine-tests](public/jasmine-tests.png)
