@@ -29,4 +29,12 @@ I'd like to be able to decrease the temperature with a down function
 As a user
 So I don't get too cold
 I'd like the minimum temperature to be 10 degrees
+
+As a User
+So I can save power
+I'd like the maximum temperature to be 25 degrees when power saving mode is on
+
+As a User
+So I can save power
+I'd like the maximum temperature to be 32 degrees when power saving mode is off
 ```
