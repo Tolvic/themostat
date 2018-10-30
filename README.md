@@ -41,4 +41,8 @@ I'd like the maximum temperature to be 32 degrees when power saving mode is off
 As a user
 So I can save power
 I'd like to have power saving mode turned on by default
+
+As a user
+So I can easily return to a normal temperature
+I'd like to reset the temperature to 20 with a reset function
 ```

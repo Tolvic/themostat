@@ -69,4 +69,11 @@ describe('Thermostat', function() {
       expect(thermostat.maximumTemperature).toEqual(32)
     });
   });
+
+  describe('resets the temperature', function() {
+    it('to 20 degrees', function() {
+      thermostat.reset()
+      expect(thermostat.currentTemperature).toEqual(20)
+    });
+  });
 });

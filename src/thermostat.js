@@ -23,3 +23,7 @@ Thermostat.prototype.enablePowerSave = function () {
 Thermostat.prototype.disablePowerSave = function () {
   this.maximumTemperature = 32;
 };
+
+Thermostat.prototype.reset = function () {
+  this.currentTemperature = 20;
+};
