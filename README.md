@@ -25,4 +25,8 @@ I'd like to be able to increase the temperature with an up function
 As a user
 So I can change the temperature
 I'd like to be able to decrease the temperature with a down function
+
+As a user
+So I don't get too cold
+I'd like the minimum temperature to be 10 degrees
 ```
