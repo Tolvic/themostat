@@ -1,5 +1,7 @@
 # Thermostat #
 
+This is a simple web app to interface with a thermostat.
+
 ## Specification ##
 * Thermostat starts at 20 degrees
 * You can increase the temperature with an up function
@@ -49,4 +51,18 @@ I'd like to reset the temperature to 20 with a reset function
 As a user
 So I can quickly tell how much energy I am using
 I'd like to ask the thermostat about it's current energy usage
+```
+
+## How to Use ##
+1. Open Terminal and clone the repository:
+```bash
+git clone https://github.com/aimeecraig/thermostat.git
+```
+2. Change into the project directory:
+```bash
+cd thermostat
+```
+3. Run the Jasmine tests to ensure the program is running correctly:
+```bash
+open SpecRunner.html
 ```
