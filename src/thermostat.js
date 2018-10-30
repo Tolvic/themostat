@@ -1,7 +1,12 @@
 var Thermostat = function(){
   this.currentTemperature = 20;
-  this.minimumTemperature = 10;
   this.maximumTemperature = 25;
+  this.DEFAULT_TEMPERATURE = 20;
+  this.MINIMUM_TEMPERATURE = 10;
+  this.LOW_ENERGY_USAGE_LIMIT = 18;
+  this.MEDIUM_ENERGY_USAGE_LIMIT = 25;
+  this.MAXIMUM_TEMPERATURE_PSM_ON = 25;
+  this.MAXIMUM_TEMPERATURE_PSM_OFF = 32;
 };
 
 Thermostat.prototype.increase = function () {
@@ -11,36 +16,37 @@ Thermostat.prototype.increase = function () {
 };
 
 Thermostat.prototype.decrease = function () {
-  if (this.currentTemperature == this.minimumTemperature)
+  if (this.currentTemperature == this.MINIMUM_TEMPERATURE)
     throw new Error("Cannot decrease temperature, minimum temperature reached.")
   this.currentTemperature--;
 };
 
 Thermostat.prototype.togglePowerSave = function () {
-  if (this.maximumTemperature == 32) {
+  if (this.maximumTemperature == this.MAXIMUM_TEMPERATURE_PSM_OFF) {
     this.enablePowerSave();
-  } else if (this.maximumTemperature == 25) {
+  } else if (this.maximumTemperature == this.MAXIMUM_TEMPERATURE_PSM_ON) {
     this.disablePowerSave();
   }
 };
 
 Thermostat.prototype.enablePowerSave = function () {
-  this.maximumTemperature = 25;
+  this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_ON;
 };
 
 Thermostat.prototype.disablePowerSave = function () {
-  this.maximumTemperature = 32;
+  this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_OFF;
 };
 
 Thermostat.prototype.reset = function () {
-  this.currentTemperature = 20;
+  this.currentTemperature = this.DEFAULT_TEMPERATURE;
 };
 
 Thermostat.prototype.usage = function () {
-  if (this.currentTemperature < 18)
+  if (this.currentTemperature < this.LOW_ENERGY_USAGE_LIMIT) {
     return "Low-Usage";
-  if (this.currentTemperature >= 18 && this.currentTemperature < 25)
+  } else if (this.currentTemperature < this.MEDIUM_ENERGY_USAGE_LIMIT) {
     return "Medium-Usage";
-  if (this.currentTemperature >= 25)
+  } else {
     return "High-Usage";
+  }
 };

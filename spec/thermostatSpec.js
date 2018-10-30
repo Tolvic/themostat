@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Thermostat', function() {
   var thermostat;
 
@@ -11,7 +13,7 @@ describe('Thermostat', function() {
     });
 
     it('with a minimum temperature of 10', function() {
-      expect(thermostat.minimumTemperature).toEqual(10)
+      expect(thermostat.MINIMUM_TEMPERATURE).toEqual(10)
     });
 
     it('with a maximum temperature of 25', function() {
@@ -27,7 +29,7 @@ describe('Thermostat', function() {
 
     it('no further than the maximum temperature with power saving mode off', function() {
       thermostat.disablePowerSave()
-      for(var i = 0; i < 12; i++) {
+      for (var i = 0; i < 12; i++) {
         thermostat.increase()
       }
       expect(function() {thermostat.increase()}).toThrow(new Error("Cannot increase temperature, maximum temperature reached."));
@@ -35,7 +37,7 @@ describe('Thermostat', function() {
 
     it('no further than the maximum temperature with power saving mode on', function() {
       thermostat.enablePowerSave()
-      for(var i = 0; i < 5; i++) {
+      for (var i = 0; i < 5; i++) {
         thermostat.increase()
       }
       expect(function() {thermostat.increase()}).toThrow(new Error("Cannot increase temperature, maximum temperature reached."));
@@ -49,7 +51,7 @@ describe('Thermostat', function() {
     });
 
     it('no further than the minimum temperature', function() {
-      for(var i = 0; i < 10; i++) {
+      for (var i = 0; i < 10; i++) {
         thermostat.decrease()
       }
       expect(function() {thermostat.decrease()}).toThrow(new Error("Cannot decrease temperature, minimum temperature reached."));
@@ -92,7 +94,7 @@ describe('Thermostat', function() {
 
   describe("reports it's energy usage", function() {
     it('as low-usage', function() {
-      for(var i = 0; i < 3; i++) {
+      for (var i = 0; i < 3; i++) {
         thermostat.decrease()
       }
       expect(thermostat.usage()).toEqual("Low-Usage")
@@ -103,7 +105,7 @@ describe('Thermostat', function() {
     });
 
     it('as high-usage', function() {
-      for(var i = 0; i < 5; i++) {
+      for (var i = 0; i < 5; i++) {
         thermostat.increase()
       }
       expect(thermostat.usage()).toEqual("High-Usage")
