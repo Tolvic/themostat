@@ -5,6 +5,8 @@ var Thermostat = function(){
 };
 
 Thermostat.prototype.increase = function () {
+  if (this.currentTemperature == this.maximumTemperature)
+    throw new Error("Cannot increase temperature, maximum temperature reached.")
   this.currentTemperature++;
 };
 

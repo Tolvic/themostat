@@ -24,6 +24,21 @@ describe('Thermostat', function() {
       thermostat.increase()
       expect(thermostat.currentTemperature).toEqual(21)
     });
+
+    it('no further than the maximum temperature with power saving mode off', function() {
+      for(var i = 0; i < 12; i++) {
+        thermostat.increase()
+      }
+      expect(function() {thermostat.increase()}).toThrow(new Error("Cannot increase temperature, maximum temperature reached."));
+    });
+
+    it('no further than the maximum temperature with power saving mode on', function() {
+      thermostat.enablePowerSave()
+      for(var i = 0; i < 5; i++) {
+        thermostat.increase()
+      }
+      expect(function() {thermostat.increase()}).toThrow(new Error("Cannot increase temperature, maximum temperature reached."));
+    });
   });
 
   describe('decreases the temperature', function() {
