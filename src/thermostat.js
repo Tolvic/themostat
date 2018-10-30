@@ -1,7 +1,7 @@
 var Thermostat = function(){
   this.currentTemperature = 20;
   this.maximumTemperature = 25;
-  this.powerSaveMode = "Power Save On"
+  this.powerSaveMode = "Power Save Off"
   this.DEFAULT_TEMPERATURE = 20;
   this.MINIMUM_TEMPERATURE = 10;
   this.LOW_ENERGY_USAGE_LIMIT = 18;
@@ -35,12 +35,12 @@ Thermostat.prototype.enablePowerSave = function () {
     this.currentTemperature = this.MAXIMUM_TEMPERATURE_PSM_ON;
   }
   this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_ON;
-  this.powerSaveMode = "Power Save On"
+  this.powerSaveMode = "Power Save Off"
 };
 
 Thermostat.prototype.disablePowerSave = function () {
   this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_OFF;
-  this.powerSaveMode = "Power Save Off"
+  this.powerSaveMode = "Power Save On"
 };
 
 Thermostat.prototype.reset = function () {

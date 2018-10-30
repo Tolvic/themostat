@@ -5,7 +5,12 @@ $(document).ready(function() {
     $('#thermostatCurrentTemperature').text(thermostat.currentTemperature);
   }
 
+  function updatePowerSave() {
+    $('#thermostatTogglePowerSave').text(thermostat.powerSaveMode);
+  }
+
   updateTemperature();
+  updatePowerSave();
 
   $('#thermostatIncrease').on('click', (function() {
     thermostat.increase();
@@ -25,5 +30,6 @@ $(document).ready(function() {
   $('#thermostatTogglePowerSave').on('click', (function() {
     thermostat.togglePowerSave();
     updateTemperature();
+    updatePowerSave();
   }))
 })
