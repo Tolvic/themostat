@@ -9,6 +9,24 @@ $(document).ready(function() {
     $('#thermostatTogglePowerSave').text(thermostat.powerSaveMode);
   }
 
+  // Start weather API
+
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+    $('#cityCurrentTemperature').text(data.main.temp);
+  })
+
+  $('#selectCity').submit(function(event) {
+    event.preventDefault();
+    var city = $('#currentCity').val();
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+    $('#cityCurrentTemperature').text(data.main.temp);
+    })
+  })
+
+  // End weather API
+
+  // Start thermostat controller
+
   updateTemperature();
   updatePowerSave();
 
@@ -32,4 +50,6 @@ $(document).ready(function() {
     updateTemperature();
     updatePowerSave();
   }))
+
+  // End thermostat controller
 })
