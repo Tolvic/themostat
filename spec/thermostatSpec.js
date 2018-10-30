@@ -70,6 +70,19 @@ describe('Thermostat', function() {
     });
   });
 
+  describe('toggles power save mode', function () {
+    it('reduces the maximum temperature from 32 to 25 degrees', function() {
+      thermostat.disablePowerSave()
+      thermostat.togglePowerSave()
+      expect(thermostat.maximumTemperature).toEqual(25)
+    });
+
+    it('increases the maximum temperature from 25 to 32 degrees', function() {
+      thermostat.togglePowerSave()
+      expect(thermostat.maximumTemperature).toEqual(32)
+    });
+  });
+
   describe('resets the temperature', function() {
     it('to 20 degrees', function() {
       thermostat.reset()

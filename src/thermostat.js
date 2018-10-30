@@ -16,6 +16,14 @@ Thermostat.prototype.decrease = function () {
   this.currentTemperature--;
 };
 
+Thermostat.prototype.togglePowerSave = function () {
+  if (this.maximumTemperature == 32) {
+    this.enablePowerSave();
+  } else if (this.maximumTemperature == 25) {
+    this.disablePowerSave();
+  }
+};
+
 Thermostat.prototype.enablePowerSave = function () {
   this.maximumTemperature = 25;
 };
