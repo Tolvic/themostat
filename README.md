@@ -45,4 +45,8 @@ I'd like to have power saving mode turned on by default
 As a user
 So I can easily return to a normal temperature
 I'd like to reset the temperature to 20 with a reset function
+
+As a user
+So I can quickly tell how much energy I am using
+I'd like to ask the thermostat about it's current energy usage
 ```

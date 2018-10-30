@@ -76,4 +76,24 @@ describe('Thermostat', function() {
       expect(thermostat.currentTemperature).toEqual(20)
     });
   });
+
+  describe("reports it's energy usage", function() {
+    it('as low-usage', function() {
+      for(var i = 0; i < 3; i++) {
+        thermostat.decrease()
+      }
+      expect(thermostat.usage()).toEqual("Low-Usage")
+    });
+
+    it('as medium-usage', function() {
+      expect(thermostat.usage()).toEqual("Medium-Usage")
+    });
+
+    it('as high-usage', function() {
+      for(var i = 0; i < 5; i++) {
+        thermostat.increase()
+      }
+      expect(thermostat.usage()).toEqual("High-Usage")
+    });
+  });
 });
