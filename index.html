@@ -2,35 +2,54 @@
 <html>
   <head>
     <title>Thermostat</title>
+    <link type="image/x-icon" rel="icon" href="https://makers.tech/wp-content/themes/wp-makers-2018/favicon.ico" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+    .container {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    </style>
   </head>
   <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+      <div class="navbar-brand">
+        <h1>Thermostat</h1>
+      </div>
+    </nav>
 
-    <div class="container-fluid">
+    <div class="container mx-3">
       <div class="row">
-        <div class="col-3 border border-dark rounded">
+        <div class="col-3 border border-dark rounded py-3">
           <section>
               <h5><span id="userCity"></span>'s current temperature: <span id="cityCurrentTemperature">20</span></h5>
-              <form id="selectCity">
+              <form class="" id="selectCity">
                 <input class="form-control-sm" id="currentCity" type="text" placeholder="Enter a city" />
                 <input type="submit" class="btn btn-dark btn-sm"/>
               </form>
           </section>
         </div>
 
-        <div class="btn-group btn-sm" role="group" aria-label="Thermostat controls">
+        <div class="col-9">
           <section>
             <h1 class="display-4">Current temperature: <span id="thermostatCurrentTemperature"></span></h1>
-              <p>
+              <div class="btn-group" role="group" aria-label="Thermostat control">
                 <button type="button" id="thermostatIncrease" class="btn btn-dark btn-sm">+</button>
                 <button type="button" id="thermostatDecrease" class="btn btn-dark btn-sm">-</button>
                 <button type="button" id="thermostatReset" class="btn btn-dark btn-sm">Reset</button>
                 <button type="button" id="thermostatTogglePowerSave" class="btn btn-dark btn-sm"></button>
-              </p>
+              </div>
           </section>
         </div>
       </div>
     </div>
+
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+      <div class="navbar-brand">
+        <h6>Aimee Craig</h6>
+      </div>
+      <!-- <a class="navbar-brand" href="#">Fixed bottom</a> -->
+    </nav>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="src/thermostat.js"></script>
