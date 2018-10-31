@@ -1,6 +1,6 @@
 # Thermostat #
 
-This is a simple web app to interface with a thermostat.
+This is a simple web app to interface with a thermostat. I started by creating the back end and then connected this to a web interface.
 
 ![app-no-css](public/app-no-css.png)
 
