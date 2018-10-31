@@ -69,3 +69,4 @@ cd thermostat
 open SpecRunner.html
 ```
 ![jasmine-tests](public/jasmine-tests.png)
+4. Open `index.html` to access the application.
