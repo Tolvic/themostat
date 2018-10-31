@@ -2,7 +2,11 @@
 
 This is a simple web app to interface with a thermostat. I started by creating the back end and then connected this to a web interface.
 
+Without CSS:
 ![app-no-css](public/app-no-css.png)
+
+With CSS:
+![app-css](app-css.png)
 
 ## Specification ##
 * Thermostat starts at 20 degrees
