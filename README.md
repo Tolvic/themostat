@@ -8,6 +8,9 @@ Without CSS:
 With CSS:
 ![app-css](public/app-css.png)
 
+With added CSS:
+![app-added-css](public/app-added-css.png)
+
 ## Specification ##
 * Thermostat starts at 20 degrees
 * You can increase the temperature with an up function
