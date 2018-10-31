@@ -6,7 +6,7 @@ Without CSS:
 ![app-no-css](public/app-no-css.png)
 
 With CSS:
-![app-css](app-css.png)
+![app-css](public/app-css.png)
 
 ## Specification ##
 * Thermostat starts at 20 degrees
