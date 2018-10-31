@@ -1,6 +1,15 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
 
+  // ************** Startup *******************
+
+  displayWeather('London');
+  startUp();
+
+  // ************** End *******************
+
+  // ************** Functions *******************
+
   function updateTemperature() {
     $('#thermostatCurrentTemperature').text(thermostat.currentTemperature);
   }
@@ -9,18 +18,25 @@ $(document).ready(function() {
     $('#thermostatTogglePowerSave').text(thermostat.powerSaveMode);
   }
 
-  function displayError() {
-    try {
-      ;
-    }
-    catch(err) {
-      alert(err.message);
-    }
+  function startUp() {
+    thermostat.setTemperature($('#thermostatCurrentTemperature').text());
+    thermostat.setPowerSaveMode($('#thermostatTogglePowerSave').text());
   }
 
-  // Start weather API
+  function passParameters() {
+    $.ajax({
+      type: "POST",
+      url: "/",
+      data: {
+        temperature: $('#thermostatCurrentTemperature').text(),
+        psm: $('#thermostatTogglePowerSave').text()
+      }
+    });
+  }
 
-  displayWeather('London');
+  // ************** End functions *******************
+
+  // ************** Weather API *******************
 
   $('#selectCity').submit(function(event) {
     event.preventDefault();
@@ -38,12 +54,9 @@ $(document).ready(function() {
     })
   }
 
-  // End weather API
+  // ************** End weather API *******************
 
-  // Start thermostat controller
-
-  updateTemperature();
-  updatePowerSave();
+  // ************** Thermostat controller *******************
 
   $('#thermostatIncrease').on('click', (function() {
     try {
@@ -53,6 +66,7 @@ $(document).ready(function() {
       alert(err.message);
     }
     updateTemperature();
+    passParameters();
   }))
 
   $('#thermostatDecrease').on('click', (function() {
@@ -63,18 +77,23 @@ $(document).ready(function() {
       alert(err.message);
     }
     updateTemperature();
+    passParameters();
   }))
 
   $('#thermostatReset').on('click', (function() {
     thermostat.reset();
     updateTemperature();
+    passParameters();
   }))
 
   $('#thermostatTogglePowerSave').on('click', (function() {
+    console.log(thermostat.currentTemperature);
     thermostat.togglePowerSave();
-    updateTemperature();
+    console.log(thermostat.currentTemperature);
     updatePowerSave();
+    updateTemperature();
+    passParameters();
   }))
 
-  // End thermostat controller
+  // ************** End thermostat controller *******************
 })
