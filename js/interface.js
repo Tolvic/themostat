@@ -9,6 +9,15 @@ $(document).ready(function() {
     $('#thermostatTogglePowerSave').text(thermostat.powerSaveMode);
   }
 
+  function displayError() {
+    try {
+      ;
+    }
+    catch(err) {
+      alert(err.message);
+    }
+  }
+
   // Start weather API
 
   displayWeather('London');
@@ -37,12 +46,22 @@ $(document).ready(function() {
   updatePowerSave();
 
   $('#thermostatIncrease').on('click', (function() {
-    thermostat.increase();
+    try {
+      thermostat.increase();
+    }
+    catch(err) {
+      alert(err.message);
+    }
     updateTemperature();
   }))
 
   $('#thermostatDecrease').on('click', (function() {
-    thermostat.decrease();
+    try {
+      thermostat.decrease();
+    }
+    catch(err) {
+      alert(err.message);
+    }
     updateTemperature();
   }))
 
