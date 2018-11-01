@@ -3,12 +3,7 @@ require 'sinatra/base'
 class App < Sinatra::Base
   enable :sessions
 
-  # session[:temperature]
-
   get '/' do
-    @temperature = session[:temperature] || 20
-    @psm = session[:psm] || 'Power Save Off'
-    @city = session[:city] || 'London'
     erb :index
   end
 
@@ -16,6 +11,14 @@ class App < Sinatra::Base
     session[:temperature] = params[:temperature]
     session[:psm] = params[:psm]
     session[:city] = params[:city]
+  end
+
+  get '/retrieve' do
+    JSON.generate({
+      temperature: session[:temperature] || 20,
+      psm: session[:psm] || 'Power Save Off',
+      city: session[:city] || 'London'
+      })
   end
 
   run! if app_file == $0

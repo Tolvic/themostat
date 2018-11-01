@@ -3,7 +3,6 @@ $(document).ready(function() {
 
   // ************** Startup *******************
 
-  displayWeather($('#userCity').text());
   startUp();
 
   // ************** End *******************
@@ -19,8 +18,19 @@ $(document).ready(function() {
   }
 
   function startUp() {
-    thermostat.setTemperature($('#thermostatCurrentTemperature').text());
-    thermostat.setPowerSaveMode($('#thermostatTogglePowerSave').text());
+    $.ajax({
+      type: 'GET',
+      url: '/retrieve',
+      dataType: 'json',
+  	  success: function(data) {
+    		$('#thermostatCurrentTemperature').text(data.temperature);
+        thermostat.setTemperature(data.temperature);
+        $('#thermostatTogglePowerSave').text(data.psm);
+        thermostat.setPowerSaveMode(data.psm);
+        $('#userCity').text(data.city);
+        displayWeather($('#userCity').text());
+      }
+    });
   }
 
   function passParameters() {

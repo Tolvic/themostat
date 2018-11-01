@@ -22,7 +22,7 @@
       <div class="row">
         <div class="col-3 border border-dark rounded py-3">
           <section>
-              <h5><span id="userCity"><%= @city %></span>'s current temperature: <span id="cityCurrentTemperature">20</span></h5>
+              <h5><span id="userCity"></span>'s current temperature: <span id="cityCurrentTemperature"></span></h5>
               <form class="" id="selectCity">
                 <input class="form-control-sm" id="currentCity" type="text" placeholder="Enter a city" />
                 <input type="submit" class="btn btn-dark btn-sm"/>
@@ -32,12 +32,12 @@
 
         <div class="col-9">
           <section>
-            <h1 class="display-4">Current temperature: <span id="thermostatCurrentTemperature"><%= @temperature %></span></h1>
+            <h1 class="display-4">Current temperature: <span id="thermostatCurrentTemperature"></span></h1>
               <div class="btn-group" role="group" aria-label="Thermostat control">
                 <button type="button" id="thermostatIncrease" class="btn btn-dark btn-sm">+</button>
                 <button type="button" id="thermostatDecrease" class="btn btn-dark btn-sm">-</button>
                 <button type="button" id="thermostatReset" class="btn btn-dark btn-sm">Reset</button>
-                <button type="button" id="thermostatTogglePowerSave" class="btn btn-dark btn-sm"><%= @psm %></button>
+                <button type="button" id="thermostatTogglePowerSave" class="btn btn-dark btn-sm"></button>
               </div>
           </section>
         </div>
@@ -78,10 +78,13 @@
       </div>
     </nav>
 
+    <script type="text/javascript">
+
+    </script>
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/thermostat.js"></script>
     <script src="js/interface.js"></script>
-    <script src="js/sinatra.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
