@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   // ************** Startup *******************
 
-  displayWeather('London');
+  displayWeather($('#userCity').text());
   startUp();
 
   // ************** End *******************
@@ -29,7 +29,8 @@ $(document).ready(function() {
       url: "/",
       data: {
         temperature: $('#thermostatCurrentTemperature').text(),
-        psm: $('#thermostatTogglePowerSave').text()
+        psm: $('#thermostatTogglePowerSave').text(),
+        city: $('#userCity').text()
       }
     });
   }
@@ -51,6 +52,7 @@ $(document).ready(function() {
     $.get(url + token + units, function(data) {
       $('#cityCurrentTemperature').text(data.main.temp);
       $('#userCity').text(data.name);
+      passParameters();
     })
   }
 

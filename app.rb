@@ -7,13 +7,15 @@ class App < Sinatra::Base
 
   get '/' do
     @temperature = session[:temperature] || 20
-    @psm = session[:psm] || "Power Save Off"
+    @psm = session[:psm] || 'Power Save Off'
+    @city = session[:city] || 'London'
     erb :index
   end
 
   post '/' do
     session[:temperature] = params[:temperature]
     session[:psm] = params[:psm]
+    session[:city] = params[:city]
   end
 
   run! if app_file == $0
