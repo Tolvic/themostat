@@ -77,3 +77,6 @@ open SpecRunner.html
 ```
 ![jasmine-tests](public/jasmine-tests.png)
 4. Open `index.html` to access the application.
+
+## Contributor
+[Aimee Craig](https://github.com/aimeecraig/thermostat) and I paired on this challenge.
