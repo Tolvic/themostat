@@ -1,15 +1,5 @@
 # Thermostat #
-
-This is a simple web app to interface with a thermostat. I started by creating the back end and then connected this to a web interface.
-
-Without CSS:
-![app-no-css](public/app-no-css.png)
-
-With CSS:
-![app-css](public/app-css.png)
-
-With added CSS:
-![app-added-css](public/app-added-css.png)
+This is a simple thermostat web app built in JavaScript and uses Jasmine for unit tests. 
 
 ## Specification ##
 * Thermostat starts at 20 degrees
@@ -62,21 +52,18 @@ So I can quickly tell how much energy I am using
 I'd like to ask the thermostat about it's current energy usage
 ```
 
-## How to Use ##
-1. Open Terminal and clone the repository:
+## Installing and Running the App
+1. clone this repository
 ```bash
 git clone https://github.com/aimeecraig/thermostat.git
 ```
-2. Change into the project directory:
-```bash
-cd thermostat
-```
-3. Run the Jasmine tests to ensure the program is running correctly:
-```bash
-open SpecRunner.html
-```
+2. With [Bundler](https://bundler.io/) installed run `bundle install` to install dependencies
+3. run `ruby app.rb` to start the app
+4. Navigate to `http://localhost:4567` to interact with the app.
+5. Controls for interacting with the app should all appear on screen
+6. Jasmine tests can be run by opening the `SpecRunner.html` file
 ![jasmine-tests](public/jasmine-tests.png)
-4. Open `index.html` to access the application.
+
 
 ## Contributor
 [Aimee Craig](https://github.com/aimeecraig/thermostat) and I paired on this challenge.
